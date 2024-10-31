@@ -1,0 +1,139 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e9f4fb;
+    height: 100vh;
+    overflow-y: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+header {
+  background-color: #43bbc8;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.event-container {
+    max-width: 1500px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-container h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.event-container p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.event-container strong {
+    font-weight: bold;
+    color: #555;
+}
+
+
+.event-container a:hover {
+    text-decoration: underline;
+}
+
+.event-details-container {
+    padding: 15px;
+    background-color: #e9f4fb;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+.event-details-container p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.event-details-container strong {
+    color: #2c3e50;
+}
+
+.event-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.event-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.event-section p {
+    margin-bottom: 10px;
+}
+
+.not-provided {
+    color: #b2b2b2;
+    font-style: italic;
+}
+
+.next-page-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.next-page-button {
+    color: white;
+    background-color: #2980b9;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.next-page-button:hover {
+    background-color: #2980b9;
+    color: white;
+}

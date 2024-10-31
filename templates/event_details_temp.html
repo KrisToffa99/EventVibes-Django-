@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Details</title>
+    <link rel="stylesheet" href="{% static 'event_temp.css' %}">
+</head>
+
+<header>
+    <h1>EventVibe</h1>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+</header>
+
+<body>
+    <div class="event-container"><br><br>
+        <h1> The Review Of Your Event</h1>
+        {% if event.image %}
+            <img src="{{ event.image.url }}" alt="Event Image" class="event-image">
+        {% else %}
+            <p><strong>Event Image:</strong> No image uploaded</p>
+        {% endif %}
+        <br>
+        <div class="event-details-container">
+            <p><strong>Event Name:</strong> {{ event.event_name }}</p>
+            <p><strong>Description:</strong> {{ event.event_description }}</p>
+            <p><strong>Location:</strong> {{ event.location }}</p>
+            <p><strong>Category:</strong> {{ event.event_category }}</p>
+            <p><strong>Event Date:</strong> {{ event.event_date }}</p>
+            <p><strong>Event Time:</strong> {{ event.event_time }}</p>
+            <p><strong>Time Zone:</strong> {{ event.timezone }}</p>
+
+            {% if event.website_url %}
+                <p><strong>Website URL:</strong> <a href="{{ event.website_url }}" target="_blank">{{ event.website_url }}</a></p>
+            {% else %}
+                <p><strong>Website URL:</strong> Not provided</p>
+            {% endif %}
+        
+            {% if event.instagram_handle %}
+                <p><strong>Instagram Handle:</strong> {{ event.instagram_handle }}</p>
+            {% else %}
+                <p><strong>Instagram Handle:</strong> Not provided</p>
+            {% endif %}        
+        </div> 
+    <div class="next-page-button-container">
+        <a href="{% url 'event-ticket' %}" class="next-page-button">Proceed To Ticketing</a>
+    </div><br><br>       
+    </div>
+</body>

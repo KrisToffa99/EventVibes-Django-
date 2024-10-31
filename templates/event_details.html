@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Details</title>
+    <link rel="stylesheet" href="{% static 'event_style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>EventVibe</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'event-details' %}">
+      {% csrf_token %}
+      
+      <div class="form-container">
+        <br><br>
+        <h1>Hey There! Let's Get started.</h1>
+        <p>Let's set up your Event</p>
+        <br><br>
+        <h2>Event Details</h2>
+        <br>
+        
+        <div class="txt_field">
+          <p>Event name</p>
+          <input type="text" required name="event_name" value="{{ form.event_name.value|default_if_none:'' }}">
+          <span></span>
+        </div>
+        
+        <div class="txt_field">
+          <p>Describe your event</p>
+          <input type="text" required name="event_description" value="{{ form.event_description.value|default_if_none:'' }}">
+          <span></span>
+        </div>
+    
+        <div class="txt_field">
+          <p>Location</p>
+          <input type="text" required name="location" value="{{ form.location.value|default_if_none:'' }}">
+          <span></span>
+        </div>
+        
+        <br><br>
+        <h2>Which kind of event is it?</h2>
+        <h4>Category that best suits your event</h4>
+        <br>
+        
+        <div class="txt_field">
+          <p>Enter category</p>
+          <input type="text" required name="event_category" value="{{ form.event_category.value|default_if_none:'' }}">
+          <span></span>
+        </div>
+        
+        <br><br>
+        <h2>When is your Event?</h2>
+        <h4>Select the date of your event</h4>
+        <br>
+        
+        <div class="txt_field">
+          <p>Select a time zone</p>
+          <select id="timezone" name="timezone" required>
+            {% for tz in timezones %}
+              <option value="{{ tz }}" {% if form.timezone.value == tz %}selected{% endif %}>{{ tz }}</option>
+            {% endfor %}
+          </select>
+        </div>
+    
+        <p>Event Date</p>
+        <div class="txt_field">
+          <input type="date" id="event_date" name="event_date" value="{{ form.event_date.value|default_if_none:'' }}" required>
+          <span></span>
+        </div>
+        
+        <p>Event Time</p>
+        <div class="txt_field">
+          <input type="time" id="event_time" name="event_time" value="{{ form.event_time.value|default_if_none:'' }}" required>
+          <span></span>
+        </div>
+    
+        <h2>Upload your event picture</h2>
+        <p>Drag an image here or click to upload</p><br>
+        <input type="file" id="imageUpload" name="image" accept="image/*" required>
+        
+        <br><br>
+        <h2>Social Details</h2>
+        <br>
+        <div class="txt_field">
+          <p>Website Url</p>
+          <input type="text" name="website_url" value="{{ form.website_url.value|default_if_none:'' }}">
+          <span></span>
+        </div>
+        
+        <div class="txt_field">
+          <p>Instagram Handle</p>
+          <input type="text" name="instagram_handle" value="{{ form.instagram_handle.value|default_if_none:'' }}">
+          <span></span>
+        </div>
+        
+        <br>
+        <div class="txt_field">
+          <button type="submit" class="submit-button">Submit</button>
+        </div>
+      </div>
+    </form>
+</body>    
+  
